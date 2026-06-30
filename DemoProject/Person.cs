@@ -13,7 +13,11 @@ namespace DemoProject
         int age { get; set; }
         double salary;
 
-        public Person() { }
+        public Person(string name,int age, double salary) {
+        this.name=name;
+            this.age=age;
+            this.salary = salary;
+        }
 
         public double Salary
         {
