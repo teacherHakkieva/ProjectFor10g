@@ -1,15 +1,11 @@
-﻿
-namespace DemoProject
+﻿namespace DemoProject
 {
     internal class Program
     {
         private const string FilePath = "people.txt";
         static void Main(string[] args)
         {
-            Person mitak = new Person("Иван", 17, 1234);
-            Console.WriteLine(mitak.ToString());
-
-            List<Person> people = new List<Person>();
+             List<Person> people = LoadPeopleFromFile();
             bool running = true;
 
             while (running)
@@ -151,6 +147,32 @@ namespace DemoProject
                 rows.Add(p.ToFileRow());
             }
             File.WriteAllLines(FilePath, rows);
+        }
+
+        static List<Person> LoadPeopleFromFile()
+        {
+            List<Person> people = new List<Person>();
+
+            if (!File.Exists(FilePath))
+            {
+                return people;
+            }
+
+            string[] lines = File.ReadAllLines(FilePath);
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+
+                Person person = new Person(
+                    parts[0],
+                    int.Parse(parts[1]),
+                    double.Parse(parts[2]));
+
+                people.Add(person);
+            }
+
+            return people;
         }
     }
 }
