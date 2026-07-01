@@ -13,9 +13,10 @@ namespace DemoProject
         int age { get; set; }
         double salary;
 
-        public Person(string name,int age, double salary) {
-        this.name=name;
-            this.age=age;
+        public Person(string name, int age, double salary)
+        {
+            this.name = name;
+            this.age = age;
             this.salary = salary;
         }
 
@@ -24,10 +25,11 @@ namespace DemoProject
             get { return salary; }
             set { salary = value; }
         }
-         public  void PresetMe()
+        public override string PresetMe()
         {
-            Console.WriteLine($"Name:{name}-age:{age} and salary:{this.salary}");
+          return ($"Name:{this.name}-age:{this.age} and salary:{this.salary}");
         }
+
 
     }
 }
