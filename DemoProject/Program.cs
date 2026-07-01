@@ -6,7 +6,7 @@ namespace DemoProject
         private const string FilePath = "people.txt";
         static void Main(string[] args)
         {
-            Person mitak = new Person("Иван", 17, 1234.56);
+            Person mitak = new Person("Иван", 17, 1234);
             Console.WriteLine(mitak.ToString());
 
             List<Person> people = new List<Person>();
@@ -130,6 +130,13 @@ namespace DemoProject
                         {
                             Console.WriteLine("Човек с такова име не беше намерен.");
                         }
+                        break;
+                    case "5":
+                        running = false;
+                        Console.WriteLine("Изход от програмата.");
+                        break;
+                    default:
+                        Console.WriteLine("Невалиден избор. Моля, опитайте отново.");
                         break;
 
                 }

@@ -1,35 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿
 
 namespace DemoProject
 {
     internal class Person
     {
-        string Name { get; set; }
-        int Age { get; set; }
-        double salary;
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public double Salary { get; set; }
 
         public Person(string name, int age, double salary)
         {
-           Name = name;
-           Age = age;
+            Name = name;
+            Age = age;
             Salary = salary;
         }
 
-        public double Salary
-        {
-            get { return salary; }
-            set { salary = value; }
-        }
         public override string ToString()
         {
-          return ($"Name:{Name}-age:{Age} and salary:{salary}");
+            return $"Име: {Name}, Възраст: {Age}, Заплата: {Salary:F2}";
         }
+
+        // Преобразува обекта в ред, подходящ за запис във файл (напр. Иван;25;2500)
         public string ToFileRow()
         {
             return $"{Name};{Age};{Salary}";
@@ -48,6 +39,6 @@ namespace DemoProject
             }
             return null;
         }
-
     }
 }
+
