@@ -10,15 +10,15 @@ namespace DemoProject
 {
     internal class Person
     {
-        string name { get; set; }
-        int age { get; set; }
+        string Name { get; set; }
+        int Age { get; set; }
         double salary;
 
         public Person(string name, int age, double salary)
         {
-            this.name = name;
-            this.age = age;
-            this.salary = salary;
+           Name = name;
+           Age = age;
+            Salary = salary;
         }
 
         public double Salary
@@ -28,11 +28,11 @@ namespace DemoProject
         }
         public override string ToString()
         {
-          return ($"Name:{this.name}-age:{this.age} and salary:{this.salary}");
+          return ($"Name:{Name}-age:{Age} and salary:{salary}");
         }
         public string ToFileRow()
         {
-            return $"{name};{age};{Salary}";
+            return $"{Name};{Age};{Salary}";
         }
 
         // Създава обект Person от прочетен ред от файла

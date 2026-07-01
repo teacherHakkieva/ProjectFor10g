@@ -66,6 +66,71 @@ namespace DemoProject
                         }
                         Console.WriteLine();
                         break;
+                    case "3":
+                        // ==========================================
+                        // 3. UPDATE
+                        // ==========================================
+                        Console.Write("Въведете името на човека за промяна на заплатата: ");
+                        string nameToUpdate = Console.ReadLine();
+
+                        Person personToUpdate = null;
+
+                        foreach (Person p in people)
+                        {
+                            if (p.Name.Equals(nameToUpdate, StringComparison.OrdinalIgnoreCase))
+                            {
+                                personToUpdate = p;
+                                break;
+                            }
+                        }
+
+                        if (personToUpdate != null)
+                        {
+                            Console.Write($"Сегашна заплата на {personToUpdate.Name}: {personToUpdate.Salary:F2}. Нова заплата: ");
+                            double newSalary = double.Parse(Console.ReadLine());
+
+                            personToUpdate.Salary = newSalary;
+
+                            // Записваме промените във файла
+                            SavePeopleToFile(people);
+                            Console.WriteLine("Заплата беше успешно обновена във файла!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Човек с такова име не беше намерен.");
+                        }
+                        break;
+                    case "4":
+                        // ==========================================
+                        // 4. DELETE
+                        // ==========================================
+                        Console.Write("Въведете името на човека за изтриване: ");
+                        string nameToDelete = Console.ReadLine();
+
+                        int indexToDelete = -1;
+
+                        for (int i = 0; i < people.Count; i++)
+                        {
+                            if (people[i].Name.Equals(nameToDelete, StringComparison.OrdinalIgnoreCase))
+                            {
+                                indexToDelete = i;
+                                break;
+                            }
+                        }
+
+                        if (indexToDelete != -1)
+                        {
+                            people.RemoveAt(indexToDelete);
+
+                            // Записваме промените (вече без изтрития човек) във файла
+                            SavePeopleToFile(people);
+                            Console.WriteLine($"Лицето {nameToDelete} беше изтрито от списъка и файла.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Човек с такова име не беше намерен.");
+                        }
+                        break;
 
                 }
             
