@@ -45,11 +45,30 @@ namespace DemoProject
                         // Записваме обновения списък във файла
                         SavePeopleToFile(people);
                         Console.WriteLine("Успешно добавен нов запис!");
+                        Console.WriteLine();
                         break;
-                      
+
+                    case "2":
+                        // ==========================================
+                        // 2. READ
+                        // ==========================================
+                        Console.WriteLine("--- Списък с хора ---");
+                        if (people.Count == 0)
+                        {
+                            Console.WriteLine("Списъкът е празен (няма записи във файла).");
+                        }
+                        else
+                        {
+                            foreach (Person p in people)
+                            {
+                                Console.WriteLine(p);
+                            }
+                        }
+                        Console.WriteLine();
+                        break;
 
                 }
-                break;
+            
             }
         }
         static void SavePeopleToFile(List<Person> people)
