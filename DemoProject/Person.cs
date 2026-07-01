@@ -25,7 +25,7 @@ namespace DemoProject
             get { return salary; }
             set { salary = value; }
         }
-        public override string PresetMe()
+        public override string ToString()
         {
           return ($"Name:{this.name}-age:{this.age} and salary:{this.salary}");
         }
